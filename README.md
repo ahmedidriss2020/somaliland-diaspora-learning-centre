@@ -1,35 +1,104 @@
-# somaliland-diaspora-learning-centre
+# Garaad — Somaliland Diaspora Learning Centre
 
-Garaad — design system and marketing site for the Somali diaspora learning
-centre, exported from the Garaad design system. Nothing here needs a build step:
-every page is plain HTML that loads React from a CDN and the compiled
-design-system bundle from disk.
+A modern, high-performance web platform built with **React**, **Vite**, **Tailwind CSS v4**, and **shadcn/ui + Radix UI** component architecture. Designed specifically for Somaliland diaspora youth across the UK, Europe, North America, and Gulf to connect with their language, culture, and Islamic heritage.
 
-## Layout
+---
 
-| Path | What it is |
-|---|---|
-| `design-system/` | The design system itself. `styles.css` is the single entry point; `tokens/` holds colour, type, space, elevation, motion and font tokens; `components/` holds the 15 components, each with its `.jsx`, `.d.ts` prop contract and `.prompt.md` usage note; `guidelines/` holds the foundation specimen cards. |
-| `design-system/_ds_bundle.js` | Compiled bundle exposing every component under the `GaraadDesignSystem_b60642` global. Load this and `styles.css` and you have the whole system. |
-| `design-system/SKILL.md` | The written brand and usage guide: voice, colour discipline, the glow spec, motion, accessibility contract, locked pricing facts. Read this before designing a new page. |
-| `landing-page/` | The starting-point landing page template. Open `LandingPage.dc.html` directly in a browser. |
-| `marketing-site/` | The full click-through marketing site — hero, tracks, dhaqan band, pricing with currency switcher, teachers, safeguarding, FAQ, booking modal. Open `index.html`. |
-| `docs/` | The UI design prompt sets the site was built from. |
+## 🌟 Key Features & Improvements
 
-## Using it in a page
+- **Official Garaad Brand Identity**: Integrated gold line-art camel and navy wordmark logo throughout header, footer, and assessment modals.
+- **Cinematic Somali Heritage Visuals**: Custom high-resolution background assets featuring Somali camel caravans, pastoral sunrises, and traditional nomadic heritage equipment (*Dhiil*, *Kebed*, *Dabqaad*).
+- **Interactive Learning Tracks**: Tabbed navigation powered by Radix UI primitives for *Af-Somali Language*, *Dhaqan Heritage*, and *Tarbiyah Islamic Studies*.
+- **Multi-Currency Tuition Switcher**: Dynamic currency toggles (`£ GBP`, `$ USD`, `€ EUR`, `CA$ CAD`) with highlighted family pass options.
+- **UK Safeguarding Guarantees**: Comprehensive safety checklist, enhanced DBS vetting badges, and open-door parent policy.
+- **Interactive Trial Booking Modal**: Step-by-step assessment reservation form with non-blocking **Sonner** toast notifications.
 
-```html
-<link rel="stylesheet" href="design-system/styles.css">
-<script src="design-system/_ds_bundle.js"></script>
+---
+
+## 📂 Project Structure & Component Architecture
+
+```
+somaliland-diaspora-learning-centre/
+├── public/                       # Static public assets & images
+│   ├── garaad-logo.jpg           # Official Garaad logo
+│   ├── bg-hero-camels.jpg        # Sunset Somali camel caravan hero background
+│   ├── bg-heritage-equipment.jpg # Traditional Somali nomadic artifacts background
+│   └── bg-dhaqan-pastoral.jpg    # Somaliland pastoral countryside sunrise background
+├── src/
+│   ├── components/               # Site sections
+│   │   ├── Navbar.jsx            # Glassmorphic header with language switcher & drawer
+│   │   ├── HeroSection.jsx       # Hero header with live studio preview card
+│   │   ├── LearningTracks.jsx    # Interactive tabbed course tracks with heritage cards
+│   │   ├── PricingSection.jsx    # Currency switcher & tuition plan cards
+│   │   ├── TeachersSection.jsx   # Certified native Somali tutor profiles & badges
+│   │   ├── SafeguardingSection.jsx # Parent safety guarantees & DBS vetting
+│   │   ├── FaqSection.jsx        # Radix accordion FAQ items
+│   │   ├── BookingModal.jsx      # Interactive lesson booking dialog
+│   │   └── Footer.jsx            # Brand footer & quick navigation
+│   ├── components/ui/            # shadcn/ui primitives
+│   │   ├── button.jsx            # Button variants (default, accent, secondary, etc.)
+│   │   ├── card.jsx              # Card primitive with header, content, footer
+│   │   ├── tabs.jsx              # Radix tabs primitive
+│   │   ├── dialog.jsx            # Radix dialog primitive
+│   │   ├── accordion.jsx         # Radix accordion primitive
+│   │   ├── badge.jsx             # Status and level badges
+│   │   └── toggle-group.jsx      # Toggle group primitive
+│   ├── lib/
+│   │   └── utils.js              # Class merging utility (clsx + tailwind-merge)
+│   ├── App.jsx                   # Main layout container & Sonner provider
+│   ├── main.jsx                  # React application entrypoint
+│   └── index.css                 # Tailwind v4 directives & custom OKLCH tokens
+├── docs/
+│   └── DOCUMENTATION.md          # Comprehensive architectural & asset documentation
+├── package.json
+└── vite.config.js
 ```
 
-Components are then available as `GaraadDesignSystem_b60642.Button`,
-`.FreeLessonCTA`, `.PricingCard`, and so on. Each component folder's
-`.prompt.md` documents its props and variants.
+---
 
-## Still outstanding
+## 🖼️ Brand Assets Inventory
 
-No logo, font binaries or photography were supplied with the brief. Fonts load
-from Google Fonts, icons are inlined Lucide-derived outlines, and every image is
-a labelled duotone placeholder. Somali and Arabic copy is not written yet — the
-RTL and string-expansion rules are built in, but the strings are English only.
+| Asset Name | Path | Description | Use Case |
+|---|---|---|---|
+| **Official Garaad Logo** | `/public/garaad-logo.jpg` | Gold minimalist line-art camel with navy wordmark | Navbar Header, Footer, Modals |
+| **Hero Camels Sunset** | `/public/bg-hero-camels.jpg` | Majestic sunset camel caravan in Somaliland dunes | Hero Section background |
+| **Heritage Equipment** | `/public/bg-heritage-equipment.jpg` | Studio photo of carved *Dhiil*, *Kebed*, and *Dabqaad* | Dhaqan Heritage Track card background |
+| **Pastoral Sunrise** | `/public/bg-dhaqan-pastoral.jpg` | Morning sunrise over Somaliland countryside with camels | Af-Somali Track preview background |
+
+---
+
+## 🚀 Getting Started & Local Development
+
+### Prerequisites
+- Node.js 18+ installed
+
+### Development Server
+Run the local dev server:
+```bash
+npm run dev
+```
+Open **http://localhost:5173/** in your browser.
+
+### Production Build
+Compile production bundle:
+```bash
+npm run build
+```
+
+Preview production build:
+```bash
+npm run preview
+```
+
+---
+
+## 🎨 Design System Tokens
+
+Defined in `src/index.css`:
+- **Primary Color:** `#4F46E5` (Cultural Indigo)
+- **Secondary Color:** `#0D9488` (Horn of Africa Emerald/Teal)
+- **Accent/CTA Color:** `#EA580C` (Warm Sunset Orange)
+- **Typography:**
+  - Headings: `Baloo 2` (Google Fonts)
+  - Body: `Plus Jakarta Sans` (Google Fonts)
+  - Arabic/Somali Script: `Amiri` (Google Fonts)
