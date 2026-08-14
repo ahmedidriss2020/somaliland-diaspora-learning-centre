@@ -1,0 +1,25 @@
+/* Garaad — motion only to explain a change. */
+:root{
+--ease-out:cubic-bezier(.2,.8,.2,1); /* @kind other */
+--dur-fast:150ms; /* @kind other */
+--dur-base:180ms; /* @kind other */
+--dur-slow:200ms; /* @kind other */
+--dur-slower:250ms; /* @kind other */
+--dur-reveal:250ms; /* @kind other */
+--stagger-reveal:60ms; /* @kind other */
+--reveal-rise:12px; /* @kind spacing */
+--dur-ring:6s; /* @kind other */
+--dur-pulse:2.6s; /* @kind other */
+--pulse-gap:1.2s; /* @kind other */
+--dur-shimmer:900ms; /* @kind other */
+--shimmer-every:5s; /* @kind other */
+--dur-check:240ms; /* @kind other */
+}
+@media (prefers-reduced-motion:reduce){:root{
+--dur-fast:0ms; /* @kind other */
+--dur-base:0ms; /* @kind other */
+--dur-slow:0ms; /* @kind other */
+--dur-slower:0ms; /* @kind other */
+--lift-hover:none; /* @kind other */
+}
+*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}}

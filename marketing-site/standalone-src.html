@@ -1,0 +1,526 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Garaad — live Somali, Arabic and Qur'aan lessons</title>
+<template id="__bundler_thumbnail" data-bg-color="#082A55">
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg"><rect width="1200" height="800" fill="#082A55"/><g transform="translate(330 230) scale(4.4)" fill="#F6F9FC"><path d="M42 44h50c9 0 15 5 15 12s-6 12-15 12H42c-9 0-15-5-15-12s6-12 15-12Z"/><path d="M46 48C44 24 58 12 70 13s20 15 20 35Z"/><path d="M32 66 48 50 30 19 17 28Z"/><path d="M30 17C22 12 9 16 2 24l6 8c9-1 19-5 24-11Z"/><path d="M28 16c1-6 4-9 8-10-1 5-2 8-4 11Z"/><path d="M42 64h7l-4 42h-5z"/><path d="M53 64h6l-2 42h-5z"/><path d="M82 64h6l2 42h-5z"/><path d="M92 64h7l4 42h-5z"/><path d="M104 52c7 4 9 10 7 17l-4-2c2-5 0-9-5-11z"/></g><circle cx="880" cy="640" r="34" fill="#EFA51B"/></svg>
+</template>
+<link rel="stylesheet" href="../design-system/styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../design-system/_ds_bundle.js"></script>
+<script src="site-data.js"></script>
+<style id="__om-edit-overrides"></style>
+</head><body>
+<div id="root"></div>
+<script type="text/babel">
+(function boot(){
+if(window.__garaadBooted)return;
+if(document.readyState!=="complete"){window.addEventListener("load",boot,{once:true});return;}
+var ns=window.GaraadDesignSystem_b60642;
+if(!(window.React&&window.ReactDOM&&window.GaraadSite&&ns&&ns.BookingModal&&ns.Motif&&ns.FreeLessonCTA)){setTimeout(boot,30);return;}
+window.__garaadBooted=true;
+
+/* Header.jsx */
+(function(){
+const { Button, FreeLessonCTA, CurrencySwitcher, LocaleSwitcher, Icon, Chip, VerifiedBadge, Motif } = window.GaraadDesignSystem_b60642;
+const S = window.GaraadSite;
+
+function Header({ scrolled, currency, setCurrency, locale, setLocale, onBook }) {
+  return (
+    <header style={{
+      position: 'sticky', insetBlockStart: 0, zIndex: 50,
+      height: scrolled ? 64 : 80, display: 'flex', alignItems: 'center',
+      background: scrolled ? 'rgba(246,249,252,.92)' : 'transparent',
+      backdropFilter: scrolled ? 'blur(12px)' : 'none',
+      borderBlockEnd: `1px solid ${scrolled ? 'var(--border-hairline)' : 'transparent'}`,
+      transition: 'height var(--dur-slow) var(--ease-out), background-color var(--dur-slow) var(--ease-out)',
+    }}>
+      <div className="g-container" style={{ display: 'flex', alignItems: 'center', gap: 24, width: '100%' }}>
+        <a href="#top" style={{ font: '700 24px/1 var(--font-core)', letterSpacing: '-.02em', color: 'var(--navy-deep)', textDecoration: 'none' }}>
+          {S.brand}<span style={{ color: 'var(--gold-star)' }}>.</span>
+        </a>
+        <nav aria-label="Main" style={{ display: 'flex', gap: 4, marginInline: 'auto' }}>
+          {S.nav.map((n) => (
+            <a key={n} href="#" style={{ padding: '10px 12px', borderRadius: 8, fontSize: 15, fontWeight: 500, color: 'var(--ink-700)', textDecoration: 'none' }}>{n}</a>
+          ))}
+        </nav>
+        <LocaleSwitcher value={locale} onChange={setLocale} />
+        <CurrencySwitcher size="sm" value={currency} onChange={setCurrency} />
+        {scrolled
+          ? <FreeLessonCTA variant="header" label="Book free lesson" onClick={onBook} />
+          : <Button variant="ghost" size="sm" label="Sign in" />}
+      </div>
+    </header>
+  );
+}
+
+function Hero({ onBook }) {
+  return (
+    <section id="top" style={{
+      paddingBlock: '56px 0',
+      background: 'radial-gradient(60% 55% at 8% 0%, rgba(239,165,27,.12), transparent 70%), radial-gradient(60% 60% at 95% 90%, rgba(30,107,214,.12), transparent 70%), var(--surface-page)',
+    }}>
+      <div className="g-container" style={{ display: 'grid', gridTemplateColumns: '7fr 5fr', gap: 48, alignItems: 'center', paddingBlockEnd: 'var(--section-y)' }}>
+        <div>
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'var(--white)', border: '1px solid var(--border-hairline)', borderRadius: 'var(--radius-pill)', padding: '7px 14px', fontSize: 13.5, fontWeight: 600, color: 'var(--ink-700)', boxShadow: 'var(--shadow-rest)' }}>
+            <Icon name="clock" size={15} color="var(--blue-primary)" /> Soo dhawoow · Live lessons in Somali, Arabic and Qur'aan
+          </span>
+          <h1 style={{ fontSize: 'var(--text-display)', lineHeight: 'var(--lh-display)', fontWeight: 800, marginBlock: '20px 18px', maxWidth: '18ch' }}>
+            Your child, speaking Somali with confidence.
+          </h1>
+          <p style={{ fontSize: 'var(--text-body-lg)', lineHeight: 'var(--lh-body-lg)', color: 'var(--ink-700)', marginBlockEnd: 28 }}>
+            Verified Somali teachers, live one-to-one lessons, and taariikh, gabay and maahmaah alongside the reading — so they grow up knowing the language and the dhaqan behind it.
+          </p>
+          <div style={{ display: 'flex', gap: 26, alignItems: 'center', flexWrap: 'wrap' }}>
+            <FreeLessonCTA variant="hero" onClick={onBook} />
+            <Button variant="text" label="See packages and pricing" />
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBlockStart: 28 }}>
+            <div style={{ display: 'flex' }}>
+              {[0, 1, 2, 3].map((i) => (
+                <span key={i} style={{ width: 34, height: 34, borderRadius: '50%', background: `linear-gradient(150deg,#0C3A72,#${i % 2 ? '7A5206' : '082A55'})`, border: '2px solid var(--surface-page)', marginInlineStart: i ? -10 : 0 }} />
+              ))}
+            </div>
+            <span className="g-caption">Verified Somali teachers across the UK, Europe and North America — for shanta Soomaaliyeed, wherever the family landed</span>
+          </div>
+        </div>
+        <div style={{ position: 'relative' }}>
+          <div style={{ position: 'relative', overflow: 'hidden', aspectRatio: '4 / 5', borderRadius: 'var(--radius-card)', background: 'linear-gradient(135deg,#082A55 0%,#0C3A72 52%,#C4820D 100%)', display: 'flex', alignItems: 'flex-end', padding: 14, boxShadow: 'var(--shadow-rest)' }}>
+            <div style={{ position: 'absolute', insetBlockEnd: 8, insetInlineEnd: -20, lineHeight: 0 }}>
+              <Motif name="caravan" height={190} color="#ffffff" opacity={0.13} />
+            </div>
+            <span style={{ fontSize: 11, letterSpacing: '.04em', textTransform: 'uppercase', color: 'rgba(246,249,252,.78)', background: 'rgba(6,29,59,.5)', borderRadius: 6, padding: '5px 9px' }}>
+              Placeholder — child at a laptop mid-lesson
+            </span>
+          </div>
+          <div style={{ position: 'absolute', insetBlockEnd: 34, insetInlineStart: -34, background: 'var(--surface-card)', borderRadius: 'var(--radius-card)', border: '1px solid var(--border-hairline)', boxShadow: 'var(--shadow-hover)', padding: '14px 16px', width: 250 }}>
+            <VerifiedBadge size="sm" label="Verified teacher" />
+            <div style={{ fontSize: 15, fontWeight: 600, color: 'var(--text-heading)', marginBlockStart: 8 }}>Next lesson today, 18:00</div>
+            <div className="g-caption">Somali reading with Ustaad Yusuf</div>
+          </div>
+        </div>
+      </div>
+      <TrustBar />
+    </section>
+  );
+}
+
+function TrustBar() {
+  const items = [
+    ['user-check', 'Every teacher ID-checked'], ['file-check', 'References taken'],
+    ['globe', 'Background checked'], ['heart', 'Safeguarding trained'], ['eye', 'Observed trial lesson'],
+  ];
+  return (
+    <div style={{ background: 'var(--white)', borderBlockEnd: '1px solid var(--border-hairline)' }}>
+      <div style={{ lineHeight: 0 }}><Motif name="weave" height={10} color="var(--gold-star)" opacity={0.5} /></div>
+      <div className="g-container" style={{ display: 'flex', flexWrap: 'wrap', gap: 28, justifyContent: 'space-between', paddingBlock: 18 }}>
+        {items.map(([icon, label]) => (
+          <span key={label} style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: 14.5, color: 'var(--ink-700)', fontWeight: 500 }}>
+            <Icon name={icon} size={18} color="var(--teal-teacher)" /> {label}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+Object.assign(window, { Header, Hero, TrustBar });
+
+})();
+
+/* Sections.jsx */
+(function(){
+const { TrackCard, PricingCard, TeacherCard, StepTimeline, CurrencySwitcher, Button, FreeLessonCTA, Motif } = window.GaraadDesignSystem_b60642;
+const SD = window.GaraadSite;
+
+function Section({ children, tone = 'paper', id, style }) {
+  const bg = tone === 'white' ? 'var(--surface-page-alt)' : tone === 'navy' ? 'var(--surface-dark)' : 'var(--surface-page)';
+  return (
+    <section id={id} style={{ background: bg, paddingBlock: 'var(--section-y)', ...style }}>
+      <div className="g-container">{children}</div>
+    </section>
+  );
+}
+
+function Heading({ title, sub, tone = 'light', align = 'start' }) {
+  return (
+    <div style={{ marginBlockEnd: 40, textAlign: align, maxWidth: align === 'center' ? 720 : 'none', marginInline: align === 'center' ? 'auto' : 0 }}>
+      <h2 style={{ color: tone === 'dark' ? 'var(--text-on-dark)' : 'var(--text-heading)' }}>{title}</h2>
+      {sub && <p style={{ marginBlockStart: 12, fontSize: 'var(--text-body-lg)', lineHeight: 'var(--lh-body-lg)', color: tone === 'dark' ? 'var(--text-on-dark-muted)' : 'var(--ink-700)', marginInline: align === 'center' ? 'auto' : 0 }}>{sub}</p>}
+    </div>
+  );
+}
+
+function Teach({ onBook }) {
+  return (
+    <Section tone="white" id="teach">
+      <Heading title="What we teach" sub="Three tracks, equal weight — and dhaqan running through all of them. The free first lesson doubles as a friendly assessment." />
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,minmax(0,1fr))', gap: 24 }}>
+        {SD.tracks.map((t) => (
+          <TrackCard key={t.title} {...t} ctaLabel={`Book a free lesson in ${t.title.split(' ')[0]}`} onCta={() => onBook(t.title)} />
+        ))}
+      </div>
+      <p style={{ marginBlockStart: 28, fontSize: 16, color: 'var(--ink-700)' }}>
+        Not sure where to start? The free first lesson doubles as a friendly assessment — the teacher will tell you honestly where your child is.
+      </p>
+    </Section>
+  );
+}
+
+function Dhaqan() {
+  const m = SD.maahmaah;
+  return (
+    <section id="dhaqan" style={{ position: 'relative', background: 'radial-gradient(70% 90% at 18% 0%, rgba(239,165,27,.13), transparent 70%), var(--surface-page)', paddingBlock: 'var(--section-y)', overflow: 'hidden' }}>
+      <div style={{ position: 'absolute', insetBlockStart: 0, insetInline: 0, lineHeight: 0 }}>
+        <Motif name="weave" height={11} color="var(--gold-star)" opacity={0.42} />
+      </div>
+      <div style={{ position: 'absolute', insetBlockEnd: -6, insetInlineEnd: -40, lineHeight: 0, pointerEvents: 'none' }}>
+        <Motif name="caravan" height={168} color="var(--navy-deep)" opacity={0.07} flip />
+      </div>
+      <div className="g-container" style={{ position: 'relative' }}>
+        <div style={{ display: 'flex', alignItems: 'flex-end', gap: 24, marginBlockEnd: 20 }}>
+          <Motif name="aqal" height={78} color="var(--navy-deep)" lineColor="var(--surface-page)" />
+          <div>
+            <span className="g-label" style={{ color: 'var(--gold-700)' }}>{SD.somali.culture} · Culture</span>
+            <h2 style={{ marginBlockStart: 10, maxWidth: '26ch' }}>Not only the language. The whole inheritance.</h2>
+          </div>
+        </div>
+        <p style={{ fontSize: 'var(--text-body-lg)', lineHeight: 'var(--lh-body-lg)', color: 'var(--ink-700)', maxWidth: '62ch', marginBlockEnd: 40 }}>
+          Every child on every track also learns where they come from. Not as an extra module — it is woven through the reading, the writing and the conversation, because that is how Somali has always been taught.
+        </p>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,minmax(0,1fr))', gap: 24 }}>
+          {SD.dhaqan.map((c) => (
+            <div key={c.so} style={{ background: 'var(--surface-card)', border: '1px solid var(--border-hairline)', borderRadius: 'var(--radius-card)', boxShadow: 'var(--shadow-rest)', padding: 24 }}>
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: 10 }}>
+                <span style={{ fontSize: 21, fontWeight: 700, color: 'var(--text-heading)' }}>{c.so}</span>
+                <span style={{ fontSize: 14, color: 'var(--text-quiet)' }}>{c.en}</span>
+              </div>
+              <div style={{ width: 34, height: 3, borderRadius: 2, background: 'var(--gold-star)', marginBlock: '14px 14px' }} />
+              <p style={{ fontSize: 16, lineHeight: 1.6, color: 'var(--ink-700)' }}>{c.body}</p>
+            </div>
+          ))}
+        </div>
+        <figure style={{ margin: '40px 0 0', display: 'flex', alignItems: 'center', gap: 22, borderInlineStart: '3px solid var(--gold-star)', paddingInlineStart: 22 }}>
+          <Motif name="camel" height={62} color="var(--gold-700)" opacity={0.9} />
+          <div>
+            <blockquote style={{ margin: 0, fontSize: 27, lineHeight: 1.3, fontWeight: 700, color: 'var(--text-heading)' }}>{m.so}</blockquote>
+            <figcaption style={{ marginBlockStart: 8, fontSize: 16, color: 'var(--ink-700)' }}>{m.en} <span style={{ color: 'var(--text-quiet)' }}>— maahmaah</span></figcaption>
+          </div>
+        </figure>
+        <div style={{ position: 'relative', overflow: 'hidden', marginBlockStart: 44, background: 'var(--surface-dark)', borderRadius: 'var(--radius-card)', padding: '38px 32px', textAlign: 'center' }}>
+          <div style={{ position: 'absolute', insetBlockEnd: -12, insetInline: 0, display: 'flex', justifyContent: 'center', lineHeight: 0 }}>
+            <Motif name="caravan" height={150} color="#ffffff" opacity={0.08} />
+          </div>
+          <div style={{ position: 'relative' }}>
+            <div style={{ fontSize: 30, fontWeight: 800, letterSpacing: '-.01em', color: 'var(--text-on-dark)' }}>Waxaan u nahay Shanta Soomaaliyeed.</div>
+            <p style={{ marginBlockStart: 12, marginInline: 'auto', maxWidth: '58ch', fontSize: 17, lineHeight: 1.6, color: 'var(--text-on-dark-muted)' }}>
+              We are for shanta Soomaaliyeed — all five Somali lands, and every family that left them. Same language, same dhaqan, same teaching, wherever you landed.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function HowItWorks() {
+  return (
+    <Section id="how">
+      <Heading title="How it works" />
+      <StepTimeline steps={SD.howItWorks} emphasisIndex={2} />
+    </Section>
+  );
+}
+
+function Pricing({ currency, setCurrency, onBook }) {
+  const p = SD.prices;
+  return (
+    <Section tone="white" id="pricing">
+      <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 24, flexWrap: 'wrap', marginBlockEnd: 36 }}>
+        <div>
+          <h2>Simple packages. The first lesson is always free.</h2>
+          <p style={{ marginBlockStart: 12, fontSize: 'var(--text-body-lg)', lineHeight: 'var(--lh-body-lg)', color: 'var(--ink-700)' }}>
+            Every package is 2 one-hour live sessions a week — about 8 hours of one-to-one teaching a month. Cancel any time.
+          </p>
+        </div>
+        <CurrencySwitcher value={currency} onChange={setCurrency} />
+      </div>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,minmax(0,1fr))', gap: 24, alignItems: 'start' }}>
+        <PricingCard name="One child" price={p.one[currency]} unit="per month"
+          priceNote="2 × 1-hour sessions every week, for one child."
+          features={SD.includes} onCta={() => onBook()} />
+        <PricingCard featured name="Two children" price={p.two[currency]} unit="per child, per month"
+          priceNote={`${p.twoTotal[currency]} a month for two children — each child gets their own 2 × 1-hour sessions a week.`}
+          savings={p.saving[currency]}
+          features={['Everything in One child', 'Siblings taught by the same teacher or different specialists', 'One invoice for the family', 'One monthly report per child']}
+          onCta={() => onBook()} />
+        <PricingCard custom name="Three or more children"
+          customLine="A genuinely generous discount — tell us about your family and we'll price it."
+          features={['Everything above', 'A dedicated family schedule', 'Flexible sibling timetabling', 'One point of contact']}
+          ctaLabel="Get your family price" onCta={() => onBook()} />
+      </div>
+      <div style={{ marginBlockStart: 32, display: 'grid', gap: 14 }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 20, fontSize: 14.5, color: 'var(--text-muted)' }}>
+          <span>First lesson free</span><span>·</span><span>No card charged until after your free session</span><span>·</span><span>Cancel any time</span><span>·</span><span>Prices shown in your currency</span>
+        </div>
+        <p style={{ fontSize: 16, color: 'var(--ink-700)' }}>
+          We publish what teachers earn. A fair share of every payment goes directly to your child's teacher. <Button variant="text" label="How we pay teachers" />
+        </p>
+        <p className="g-caption">Not sure which to pick? Message us on WhatsApp and we'll talk it through.</p>
+      </div>
+    </Section>
+  );
+}
+
+function Teachers({ onBook }) {
+  return (
+    <Section id="teachers">
+      <Heading title="Meet the teachers" sub="Photographs and names are placeholders until each teacher consents to being shown." />
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,minmax(0,1fr))', gap: 20 }}>
+        {SD.teachers.map((t) => <TeacherCard key={t.name} {...t} onBook={() => onBook()} />)}
+      </div>
+      <p style={{ marginBlockStart: 28, fontSize: 16, color: 'var(--ink-700)' }}>
+        We match your child to a teacher, and if it isn't right we re-match within 48 hours — at no cost, and your progress moves with you.
+      </p>
+    </Section>
+  );
+}
+
+function Safeguarding() {
+  return (
+    <Section tone="navy" id="safeguarding">
+      <Heading tone="dark" title="Parents are buying safety before they are buying Somali."
+        sub="Here is exactly how we verify every teacher — published, not promised." />
+      <StepTimeline tone="dark" numbered={false} steps={SD.vetting} />
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,minmax(0,1fr))', gap: 20, marginBlock: '44px 32px' }}>
+        {['Your child never sees a price, a payment screen or an advert.',
+          'Report anything, one tap. A human reviews it within 24 hours.',
+          'The AI study buddy is supervised — you and the teacher see every message.'].map((c) => (
+          <div key={c} style={{ background: 'var(--surface-dark-raised)', border: '1px solid var(--border-on-dark)', borderRadius: 'var(--radius-card)', padding: 20, fontSize: 15.5, lineHeight: 1.55, color: 'var(--text-on-dark)' }}>{c}</div>
+        ))}
+      </div>
+      <Button variant="outline" onDark label="Read our full safeguarding standard" />
+    </Section>
+  );
+}
+
+Object.assign(window, { Section, Heading, Teach, Dhaqan, HowItWorks, Pricing, Teachers, Safeguarding });
+
+})();
+
+/* Content.jsx */
+(function(){
+const { StatTile, Accordion, Button, FreeLessonCTA, Icon, VerifiedBadge, LocaleSwitcher, CurrencySwitcher, Motif } = window.GaraadDesignSystem_b60642;
+const SDx = window.GaraadSite;
+
+function AiBuddy() {
+  const chat = [
+    { who: 'buddy', text: 'Shall we practise this week’s 10 words?' },
+    { who: 'child', text: 'Haa. Ready.' },
+    { who: 'buddy', text: 'Good. “Qurux” — now use it in a sentence for me.' },
+  ];
+  return (
+    <window.Section tone="white" id="ai">
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 420px', gap: 56, alignItems: 'center' }}>
+        <div>
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'var(--violet-50)', border: '1px solid rgba(108,75,209,.18)', color: 'var(--violet-700)', borderRadius: 'var(--radius-pill)', padding: '6px 13px', fontSize: 13, fontWeight: 600 }}>
+            <Icon name="sparkles" size={15} /> Between lessons
+          </span>
+          <h2 style={{ marginBlock: '18px 16px' }}>A practice partner between lessons — with the teacher still in charge.</h2>
+          <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'grid', gap: 12 }}>
+            {['It only practises what your child’s teacher has already taught.',
+              'It never gives religious rulings, and never assesses recitation.',
+              'Every conversation is logged and visible to you and the teacher.',
+              'There’s a daily time limit, so it stays practice — not a screen habit.'].map((t) => (
+              <li key={t} style={{ display: 'flex', gap: 10, fontSize: 16, lineHeight: 1.55, color: 'var(--ink-700)' }}>
+                <span style={{ marginBlockStart: 3 }}><Icon name="check" size={17} color="var(--violet-ai)" strokeWidth={2.5} /></span>{t}
+              </li>
+            ))}
+          </ul>
+          <p style={{ marginBlockStart: 22, fontSize: 17, fontWeight: 600, color: 'var(--text-heading)' }}>The AI helps your child remember. The teacher does the teaching.</p>
+        </div>
+        <div style={{ background: 'var(--surface-card)', border: '1px solid rgba(108,75,209,.2)', borderRadius: 'var(--radius-card)', boxShadow: 'var(--shadow-rest)', overflow: 'hidden' }}>
+          <div style={{ background: 'var(--violet-50)', color: 'var(--violet-700)', padding: '10px 14px', fontSize: 13, fontWeight: 600, borderBlockEnd: '1px solid rgba(108,75,209,.16)' }}>
+            Your teacher and hooyo can see this chat.
+          </div>
+          <div style={{ padding: 16, display: 'grid', gap: 10 }}>
+            {chat.map((m, i) => (
+              <div key={i} style={{
+                justifySelf: m.who === 'child' ? 'end' : 'start', maxWidth: '82%',
+                background: m.who === 'child' ? 'var(--paper-200)' : 'var(--violet-ai)',
+                color: m.who === 'child' ? 'var(--ink-900)' : '#fff',
+                padding: '10px 14px', borderRadius: 14,
+                borderEndStartRadius: m.who === 'child' ? 14 : 4, borderEndEndRadius: m.who === 'child' ? 4 : 14,
+                fontSize: 15, lineHeight: 1.5,
+              }}>{m.text}</div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </window.Section>
+  );
+}
+
+function MonthlyReport() {
+  return (
+    <window.Section id="report">
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 480px', gap: 56, alignItems: 'center' }}>
+        <div>
+          <h2>Every month, a report you'll actually want to forward.</h2>
+          <p style={{ marginBlockStart: 16, fontSize: 'var(--text-body-lg)', lineHeight: 'var(--lh-body-lg)', color: 'var(--ink-700)' }}>
+            Attendance, new words learned, Qur'aan progress, and one honest note from your child's teacher. It takes a minute to read and it tells you exactly what you're paying for.
+          </p>
+        </div>
+        <div style={{ transform: 'rotate(-2deg)', background: 'var(--surface-card)', border: '1px solid var(--border-hairline)', borderRadius: 'var(--radius-card)', boxShadow: 'var(--shadow-hover)', padding: 22 }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 12 }}>
+            <div>
+              <div style={{ fontSize: 19, fontWeight: 700, color: 'var(--text-heading)' }}>Ayaan · April</div>
+              <div style={{ marginBlockStart: 6 }}><VerifiedBadge size="sm" label="Ustaad Yusuf A." /></div>
+            </div>
+            <Icon name="file-text" size={22} color="var(--ink-400)" />
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, marginBlock: '18px' }}>
+            <StatTile label="Lessons attended" value="4/4" />
+            <StatTile label="New words" value="42" />
+            <StatTile label="Homework done" value="3/4" />
+            <StatTile label="Qur'aan · Juz Amma" value="60%" progress={60} tone="gold" />
+          </div>
+          <p style={{ fontSize: 15.5, lineHeight: 1.6, color: 'var(--ink-700)', borderInlineStart: '2px solid var(--teal-100)', paddingInlineStart: 12 }}>
+            “Beautiful recitation this week. Slow down on the long vowels.”
+          </p>
+          <span style={{ display: 'inline-block', marginBlockStart: 16, background: 'var(--paper-200)', borderRadius: 'var(--radius-pill)', padding: '6px 12px', fontSize: 13, color: 'var(--text-muted)' }}>
+            Sent to you on the 1st of every month
+          </span>
+        </div>
+      </div>
+    </window.Section>
+  );
+}
+
+function Parents() {
+  return (
+    <window.Section tone="white" id="parents">
+      <window.Heading align="center" title="Parents' words" sub="Placeholder testimonials — we publish nothing until a family agrees to be quoted." />
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,minmax(0,1fr))', gap: 20 }}>
+        {[1, 2, 3].map((i) => (
+          <div key={i} style={{ background: 'var(--surface-page)', border: '1px dashed var(--border-strong)', borderRadius: 'var(--radius-card)', padding: 22 }}>
+            <span className="g-label" style={{ color: 'var(--text-quiet)' }}>Placeholder</span>
+            <p style={{ marginBlockStart: 12, fontSize: 16.5, lineHeight: 1.6, color: 'var(--ink-500)' }}>
+              A parent's own words go here, once a real family has agreed to be quoted by name.
+            </p>
+            <div style={{ marginBlockStart: 14, fontSize: 14, color: 'var(--text-quiet)' }}>Parent, city — awaiting consent</div>
+          </div>
+        ))}
+      </div>
+    </window.Section>
+  );
+}
+
+function Faq() {
+  return (
+    <window.Section id="faq">
+      <window.Heading align="center" title="Questions parents ask" />
+      <Accordion defaultOpen={0} items={SDx.faq} />
+    </window.Section>
+  );
+}
+
+function ClosingCta({ onBook }) {
+  return (
+    <section style={{ position: 'relative', overflow: 'hidden', background: 'var(--surface-dark)', paddingBlock: 72 }}>
+      <div style={{ position: 'absolute', insetBlockEnd: -10, insetInlineStart: -30, lineHeight: 0 }}><Motif name="caravan" height={158} color="#ffffff" opacity={0.07} /></div>
+      <div className="g-container" style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', gap: 8 }}>
+        <h2 style={{ color: 'var(--text-on-dark)', fontSize: 'var(--text-h1)' }}>Your child's first lesson is free.</h2>
+        <p style={{ color: 'var(--text-on-dark-muted)', fontSize: 'var(--text-body-lg)', marginBlockEnd: 22 }}>Bal aan bilowno — let's begin. Find out what they can do in an hour.</p>
+        <FreeLessonCTA variant="dark" caption="No card needed · 1 full hour · With a verified teacher" onClick={onBook} />
+      </div>
+    </section>
+  );
+}
+
+function Footer({ currency, setCurrency, locale, setLocale }) {
+  return (
+    <footer style={{ background: 'var(--surface-page)', borderBlockStart: '1px solid var(--border-hairline)', paddingBlock: '56px 28px' }}>
+      <div className="g-container">
+        <div style={{ display: 'grid', gridTemplateColumns: '1.4fr repeat(4,1fr)', gap: 32 }}>
+          <div>
+            <div style={{ font: '700 24px/1 var(--font-core)', letterSpacing: '-.02em', color: 'var(--navy-deep)' }}>{SDx.brand}<span style={{ color: 'var(--gold-star)' }}>.</span></div>
+            <p style={{ marginBlockStart: 12, fontSize: 14.5, lineHeight: 1.6, color: 'var(--text-muted)' }}>
+              Live Somali, Arabic and Qur'aan lessons for diaspora families, with verified Somali teachers. Taariikh, gabay and maahmaah included. For shanta Soomaaliyeed.
+            </p>
+            <div style={{ marginBlockStart: 16, lineHeight: 0 }}><Motif name="camel" height={44} color="var(--navy-deep)" opacity={0.28} /></div>
+          </div>
+          {SDx.footer.map((col) => (
+            <div key={col.h}>
+              <div className="g-label" style={{ color: 'var(--text-quiet)', marginBlockEnd: 12 }}>{col.h}</div>
+              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'grid', gap: 9 }}>
+                {col.items.map((it) => <li key={it}><a href="#" style={{ fontSize: 14.5, color: 'var(--ink-700)', textDecoration: 'none' }}>{it}</a></li>)}
+              </ul>
+            </div>
+          ))}
+        </div>
+        <div style={{ marginBlockStart: 40, paddingBlockStart: 20, borderBlockStart: '1px solid var(--border-hairline)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 20, flexWrap: 'wrap' }}>
+          <span className="g-caption">© 2026 {SDx.brand}. Registered in [country], no. [X].</span>
+          <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
+            <LocaleSwitcher value={locale} onChange={setLocale} />
+            <CurrencySwitcher size="sm" value={currency} onChange={setCurrency} />
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+Object.assign(window, { AiBuddy, MonthlyReport, Parents, Faq, ClosingCta, Footer });
+
+})();
+
+/* App.jsx */
+(function(){
+const { BookingModal } = window.GaraadDesignSystem_b60642;
+
+function App() {
+  const [currency, setCurrency] = React.useState(() => localStorage.getItem('garaad.currency') || 'GBP');
+  const [locale, setLocale] = React.useState('en');
+  const [scrolled, setScrolled] = React.useState(false);
+  const [booking, setBooking] = React.useState(null);
+
+  const pickCurrency = (c) => { setCurrency(c); localStorage.setItem('garaad.currency', c); };
+  React.useEffect(() => {
+    const el = document.scrollingElement || document.documentElement;
+    const onScroll = () => setScrolled(el.scrollTop > 420);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  const openBooking = (track) => setBooking({ track });
+
+  return (
+    <>
+      <window.Header scrolled={scrolled} currency={currency} setCurrency={pickCurrency} locale={locale} setLocale={setLocale} onBook={() => openBooking()} />
+      <main>
+        <window.Hero onBook={() => openBooking()} />
+        <window.Teach onBook={openBooking} />
+        <window.Dhaqan />
+        <window.HowItWorks />
+        <window.Pricing currency={currency} setCurrency={pickCurrency} onBook={openBooking} />
+        <window.Teachers onBook={openBooking} />
+        <window.Safeguarding />
+        <window.AiBuddy />
+        <window.MonthlyReport />
+        <window.Parents />
+        <window.Faq />
+        <window.ClosingCta onBook={() => openBooking()} />
+      </main>
+      <window.Footer currency={currency} setCurrency={pickCurrency} locale={locale} setLocale={setLocale} />
+      <BookingModal open={!!booking} initialTrack={booking && booking.track} onClose={() => setBooking(null)} />
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+
+})();
+
+})();
+</script>
+</body></html>

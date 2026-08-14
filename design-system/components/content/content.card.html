@@ -1,0 +1,21 @@
+<!-- @dsCard group="Components" viewport="1000x420" name="Content" subtitle="Step timeline and FAQ accordion" -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Content</title><link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{padding:24px 22px;background:var(--surface-page)}.k{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--text-quiet);font-weight:600;margin-block-end:14px}.dark{background:var(--navy-800);border-radius:16px;padding:24px;margin-block:22px}.dark .k{color:#A9C1DE}</style>
+</head><body><div id="root"></div>
+<script type="text/babel">
+const { StepTimeline, Accordion } = window.GaraadDesignSystem_b60642;
+const how=[{title:'Tell us about your child',body:'Two minutes.'},{title:'We match you with a verified teacher',body:'Within 24 hours.'},{title:'Free 1-hour first lesson',body:'No charge, no card needed.'},{title:'Choose a package and keep going',body:'Or not — that is fine too.'}];
+const vet=[{title:'Identity verified',body:'Government ID and right to work checked.',icon:'user-check'},{title:'Two references taken',body:'From previous teaching or community roles.',icon:'file-check'},{title:'Background check',body:'Where available in the teacher’s country.',icon:'globe'},{title:'Observed trial lesson',body:'A senior teacher sits in and scores it.',icon:'eye'},{title:'Safeguarding training',body:'Completed and a code of conduct signed.',icon:'heart'}];
+function Card(){return <div>
+<div className="k">StepTimeline — numbered, step 3 emphasised in gold</div>
+<StepTimeline steps={how} emphasisIndex={2}/>
+<div className="dark"><div className="k">Icon steps on navy — the five vetting steps</div><StepTimeline tone="dark" numbered={false} steps={vet}/></div>
+<div className="k">Accordion</div>
+<Accordion defaultOpen={0} items={[{q:'Is the first lesson really free?',a:'Yes — a full hour with a verified teacher, at no cost, with no card needed to book it. If it isn’t right for your child, that’s the end of it.'},{q:'What happens after the free lesson?',a:'We’ll ask what you thought. If you want to carry on, you pick a package and set a weekly time. If not, nothing is charged.'},{q:'Can I pause or cancel?',a:'Yes, any time, from your account. No notice period, no cancellation fee.'}]}/>
+</div>}
+ReactDOM.createRoot(document.getElementById('root')).render(<Card/>);
+</script></body></html>

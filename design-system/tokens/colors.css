@@ -1,0 +1,39 @@
+/* Garaad — colour tokens. Brand hexes are locked; do not substitute. */
+:root{
+/* brand */
+--blue-primary:#1E6BD6;--navy-deep:#082A55;--teal-teacher:#0E8C6F;--gold-star:#EFA51B;--violet-ai:#6C4BD1;--coral-alert:#DC4B33;--paper:#F6F9FC;--ink:#0A1B2E;
+/* blue ramp (derived; --blue-primary is the locked anchor) */
+--blue-50:#EDF4FD;--blue-100:#D6E6FA;--blue-200:#A9C9F3;--blue-400:#4A88DF;--blue-600:#1E6BD6;--blue-700:#0F53B4;--blue-800:#0B3F8A;
+/* navy ramp */
+--navy-700:#0C3A72;--navy-800:#082A55;--navy-900:#061D3B;
+/* teal ramp */
+--teal-50:#E7F5F1;--teal-100:#C6E8DF;--teal-600:#0E8C6F;--teal-700:#0A6E57;
+/* gold ramp */
+--gold-50:#FEF6E7;--gold-100:#FBE8C2;--gold-600:#EFA51B;--gold-700:#C4820D;
+/* violet ramp — AI study buddy only */
+--violet-50:#F0ECFB;--violet-100:#DED5F6;--violet-600:#6C4BD1;--violet-700:#5537B2;
+/* coral ramp */
+--coral-50:#FDEDEA;--coral-600:#DC4B33;--coral-700:#B33823;
+/* neutrals */
+--white:#FFFFFF;--paper-50:#FBFDFF;--paper-100:#F6F9FC;--paper-200:#EDF2F8;--line-100:#E2EAF3;
+--ink-900:#0A1B2E;--ink-700:#2A3F58;--ink-500:#54677D;--ink-400:#7286A0;
+
+/* semantic — surfaces */
+--surface-page:var(--paper-100);--surface-page-alt:var(--white);--surface-card:var(--white);--surface-sunken:var(--paper-200);--surface-dark:var(--navy-800);--surface-dark-raised:var(--navy-700);
+/* semantic — text */
+--text-body:var(--ink-900);--text-muted:var(--ink-500);--text-quiet:var(--ink-400);--text-heading:var(--navy-800);--text-on-dark:var(--paper-100);--text-on-dark-muted:#A9C1DE;--text-on-brand:var(--white);--text-link:var(--blue-primary);--text-link-hover:var(--blue-700);
+/* semantic — meaning. teal = teacher, gold = achievement + the free lesson, violet = AI only */
+--accent-teacher:var(--teal-teacher);--accent-achievement:var(--gold-star);--accent-ai:var(--violet-ai);--accent-track-somali:var(--blue-primary);--accent-track-arabic:var(--blue-primary);--accent-track-quraan:var(--gold-star);
+--status-success:var(--teal-600);--status-error:var(--coral-600);--status-error-bg:var(--coral-50);
+/* semantic — lines + interactive */
+--border-hairline:rgba(8,42,85,.08);--border-strong:rgba(8,42,85,.16);--border-on-dark:rgba(246,249,252,.16);
+--action-primary:var(--blue-primary);--action-primary-hover:var(--blue-700);--action-primary-active:var(--blue-800);--action-secondary-bg:var(--white);--action-ghost-hover:var(--blue-50);
+--focus-ring:var(--gold-star);--overlay-scrim:rgba(6,29,59,.56);
+}
+[data-theme="dark"]{
+--surface-page:#061D3B;--surface-page-alt:#082A55;--surface-card:#0C3A72;--surface-sunken:#061D3B;--surface-dark:#04162C;--surface-dark-raised:#0C3A72;
+--text-body:#EAF1F9;--text-muted:#A9C1DE;--text-quiet:#7E9AC0;--text-heading:#FFFFFF;--text-link:#7FB0F0;--text-link-hover:#A9C9F3;
+--border-hairline:rgba(246,249,252,.12);--border-strong:rgba(246,249,252,.22);
+--action-primary:#3B82E8;--action-primary-hover:#5A99F0;--action-secondary-bg:#0C3A72;--action-ghost-hover:rgba(122,170,240,.12);
+--status-error:#F07A66;--status-error-bg:rgba(220,75,51,.16);
+}

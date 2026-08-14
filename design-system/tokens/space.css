@@ -1,0 +1,11 @@
+/* Garaad — 8pt spacing, shape, layout */
+:root{
+--space-0:0;--space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:24px;--space-6:32px;--space-7:40px;--space-8:48px;--space-9:64px;--space-10:80px;--space-11:96px;--space-12:128px;
+--section-y:96px; /* @kind spacing */
+--container-max:1200px; /* @kind spacing */
+--gutter:24px; /* @kind spacing */
+--radius-card:16px;--radius-button:12px;--radius-cta:14px;--radius-input:12px;--radius-chip:999px;--radius-pill:999px;--radius-tile:12px;--radius-sm:8px;
+--tap-min:48px; /* @kind spacing */
+--cta-min-height:56px; /* @kind spacing */
+}
+@media (max-width:768px){:root{--section-y:64px;--gutter:16px}}

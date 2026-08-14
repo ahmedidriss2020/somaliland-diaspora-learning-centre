@@ -1,0 +1,28 @@
+<!-- @dsCard group="Components" viewport="700x430" name="Core" subtitle="Buttons, chips, verified badge, stat tiles, icons" -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Core</title><link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{padding:20px;background:var(--surface-page)}.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-block-end:16px}.k{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--text-quiet);font-weight:600;margin-block-end:8px}</style>
+</head><body><div id="root"></div>
+<script type="text/babel">
+const { Button, Chip, VerifiedBadge, StatTile, Icon } = window.GaraadDesignSystem_b60642;
+function Card(){return <div>
+<div className="k">Button — variants</div>
+<div className="row"><Button variant="primary" label="Primary" iconEnd="arrow-right"/><Button variant="secondary" label="Secondary"/><Button variant="outline" label="Outline"/><Button variant="ghost" label="Ghost"/><Button variant="text" label="Text link"/></div>
+<div className="k">Sizes · loading · disabled</div>
+<div className="row"><Button size="sm" label="Small"/><Button size="md" label="Medium"/><Button size="lg" label="Large"/><Button loading label="Loading"/><Button disabled label="Disabled"/></div>
+<div className="k">Chip — tones and selectable</div>
+<div className="row"><Chip tone="blue" label="Somali"/><Chip tone="blue" label="Arabic"/><Chip tone="gold" label="Qur'aan"/><Chip tone="teal" label="Teacher"/><Chip tone="violet" label="AI study buddy"/><Chip selectable selected label="8–10"/><Chip selectable label="11–13"/></div>
+<div className="k">VerifiedBadge</div>
+<div className="row"><VerifiedBadge size="sm"/><VerifiedBadge size="md"/><VerifiedBadge size="lg"/><VerifiedBadge state="new"/></div>
+<div className="k">StatTile · Icon</div>
+<div className="row" style={{alignItems:'stretch'}}>
+<StatTile label="Lessons attended" value="4/4"/><StatTile label="New words" value="42"/><StatTile label="Qur'aan · Juz Amma" value="60%" progress={60} tone="gold"/>
+<div style={{display:'flex',gap:14,alignItems:'center',paddingInlineStart:8,color:'var(--ink-500)'}}>
+{['user-check','file-check','eye','heart','book-open','clock','globe','message-circle','calendar','sparkles','star','file-text'].map(n=><Icon key={n} name={n} size={20}/>)}
+</div></div>
+</div>}
+ReactDOM.createRoot(document.getElementById('root')).render(<Card/>);
+</script></body></html>

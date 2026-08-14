@@ -1,0 +1,30 @@
+<!-- @dsCard group="Components" viewport="1100x560" name="Cards" subtitle="Pricing, teacher and track cards" -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Cards</title><link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{padding:26px 22px;background:var(--surface-page)}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:start;margin-block-end:26px}.k{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--text-quiet);font-weight:600;margin-block-end:12px}</style>
+</head><body><div id="root"></div>
+<script type="text/babel">
+const { PricingCard, TeacherCard, TrackCard } = window.GaraadDesignSystem_b60642;
+const inc=['Matched verified teacher','Live one-to-one lessons','Homework set and marked','AI study buddy for practice','Monthly progress report','Free re-match within 48 hours'];
+function Card(){return <div>
+<div className="k">PricingCard — standard, featured, custom quote</div>
+<div className="grid">
+<PricingCard name="One child" price="$80" unit="per month" priceNote="2 × 1-hour sessions every week, for one child." features={inc.slice(0,4)}/>
+<PricingCard featured name="Two children" price="$70" unit="per child, per month" priceNote="$140 a month for two children — each child gets their own 2 × 1-hour sessions a week." savings="Save $10 per child, every month." features={['Everything in One child','Same teacher or different specialists','One invoice for the family','One monthly report per child']}/>
+<PricingCard custom name="Three or more children" customLine="A genuinely generous discount — tell us about your family and we'll price it." features={['Everything above','A dedicated family schedule','Flexible sibling timetabling','One point of contact']} ctaLabel="Get your family price"/>
+</div>
+<div className="k">TeacherCard · TrackCard</div>
+<div className="grid">
+<TeacherCard name="Ustaad Yusuf A." tracks={['Somali',"Qur'aan"]} years="9 years" languages="Somali, Arabic, English" timezone="GMT+3" quote="I start with the words a child already hears at home."/>
+<TeacherCard state="new" name="Macallin Farhia" tracks={['Somali','Arabic']} years="4 years" languages="Somali, English" timezone="GMT+1" quote="Reading comes faster once the sounds feel familiar."/>
+<div style={{display:'grid',gap:20}}>
+<TrackCard title="Somali language" accent="blue" icon="book-open" promise="Speaking, reading and writing Somali — from first words to full conversations." bullets={['Everyday conversation with family','Reading and writing the Somali alphabet','Somali stories, proverbs and poetry']} ages="Ages 5–15 · Complete beginners welcome" ctaLabel="Book a free lesson in Somali"/>
+<TrackCard title="Qur'aan" accent="gold" icon="star" promise="Recitation, tajwiid and memorisation with a qualified teacher." bullets={['Correct recitation and tajwiid rules','Memorisation, tracked surah by surah','Meaning and reflection, age-appropriate']} ages="Ages 5–15 · Assessed only by a human teacher, never by AI" ctaLabel="Book a free lesson in Qur'aan"/>
+</div>
+</div>
+</div>}
+ReactDOM.createRoot(document.getElementById('root')).render(<Card/>);
+</script></body></html>

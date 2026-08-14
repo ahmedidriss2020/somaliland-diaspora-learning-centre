@@ -1,0 +1,35 @@
+<!-- @dsCard group="Brand" viewport="900x620" name="Somali motifs" subtitle="Camel, caravan, aqal Somali and alool weave — decorative marks, aria-hidden, low opacity behind text" -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Motifs</title>
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style id="__om-edit-overrides"></style>
+<style>body{margin:0;background:var(--surface-page);font-family:var(--font-core);color:var(--text-body)}.wrap{padding:36px;display:grid;gap:28px}.row{background:var(--surface-card);border:1px solid var(--border-hairline);border-radius:var(--radius-card);padding:22px;display:grid;gap:14px}.lbl{font:600 12px/1 var(--font-core);letter-spacing:.08em;text-transform:uppercase;color:var(--text-quiet)}.line{display:flex;align-items:flex-end;gap:32px}</style>
+</head><body><div id="root"></div>
+<script>
+const { Motif } = window.GaraadDesignSystem_b60642;
+const e = React.createElement;
+const Row = (label, kids) => e('div', { className: 'row', key: label }, e('div', { className: 'lbl' }, label), kids);
+ReactDOM.createRoot(document.getElementById('root')).render(
+  e('div', { className: 'wrap' },
+    Row('Camel · caravan', e('div', { className: 'line' },
+      e(Motif, { name: 'camel', height: 74, color: 'var(--navy-deep)' }),
+      e(Motif, { name: 'camel', height: 74, color: 'var(--gold-star)', flip: true }),
+      e(Motif, { name: 'caravan', height: 74, color: 'var(--navy-deep)', opacity: .5 }))),
+    Row('Aqal Somali', e('div', { className: 'line' },
+      e(Motif, { name: 'aqal', height: 86, color: 'var(--navy-deep)', lineColor: 'var(--surface-card)' }),
+      e(Motif, { name: 'aqal', height: 86, color: 'var(--gold-star)', lineColor: 'var(--surface-card)' }),
+      e(Motif, { name: 'aqal', height: 86, color: 'var(--teal-teacher)', lineColor: 'var(--surface-card)' }))),
+    Row('Alool weave · full-width rule', e('div', { style: { display: 'grid', gap: 12 } },
+      e(Motif, { name: 'weave', height: 12, color: 'var(--gold-star)' }),
+      e(Motif, { name: 'weave', height: 10, color: 'var(--navy-deep)', opacity: .35 }))),
+    Row('Behind text · opacity .08', e('div', { style: { position: 'relative', background: 'var(--surface-dark)', borderRadius: 12, padding: '30px 26px', overflow: 'hidden' } },
+      e('div', { style: { position: 'absolute', inset: 'auto 0 -10px 0', display: 'flex', justifyContent: 'center' } },
+        e(Motif, { name: 'caravan', height: 120, color: '#fff', opacity: .08 })),
+      e('div', { style: { position: 'relative', color: 'var(--text-on-dark)', fontSize: 22, fontWeight: 700 } }, 'Waxaan u nahay Shanta Soomaaliyeed.'),
+      e('div', { style: { position: 'relative', color: 'var(--text-on-dark-muted)', fontSize: 15, marginBlockStart: 6 } }, 'We are for shanta Soomaaliyeed.')))
+  )
+);
+</script>
+</body></html>

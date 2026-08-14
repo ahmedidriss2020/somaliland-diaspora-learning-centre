@@ -1,0 +1,16 @@
+/* Garaad — shared keyframes. Every animation the components use lives here so
+   consumers get identical motion. @property drives the CTA's rotating ring. */
+/* Garaad — shared keyframes. Every animation the components use lives here so
+   consumers get identical motion. The CTA's ring is a spinning conic layer
+   clipped by the button's radius — transform-only, so it holds 60fps. */
+@keyframes g-spin{to{transform:rotate(360deg)}}
+/* one slow heartbeat: 2.6s pulse, 1.2s rest — never fast, never bouncing */
+@keyframes g-cta-pulse{0%{box-shadow:var(--cta-pulse-from)}68%{box-shadow:var(--cta-pulse-to)}100%{box-shadow:var(--cta-pulse-to)}}
+@keyframes g-cta-shimmer{0%{transform:translateX(-120%)}18%{transform:translateX(320%)}100%{transform:translateX(320%)}}
+@keyframes g-reveal{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes g-check-draw{from{stroke-dashoffset:32}to{stroke-dashoffset:0}}
+@media (prefers-reduced-motion:reduce){
+  .g-cta-ring,.g-cta-shimmer,.g-cta-pulse{animation:none!important}
+  .g-cta-shimmer{display:none}
+  .g-cta-ring{background:linear-gradient(135deg,#EFA51B,#1E6BD6)!important}
+}
