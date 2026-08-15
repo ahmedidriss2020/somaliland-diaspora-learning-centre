@@ -22,7 +22,7 @@ export function Footer({ onOpenBooking }) {
               </div>
             </div>
             <p className="text-slate-400 text-sm leading-relaxed max-w-md">
-              Somaliland Diaspora Learning Centre — Empowering diaspora youth across the UK, Europe, North America & Gulf to embrace their language, culture, and Islamic heritage.
+              Somali Diaspora Learning Centre — Empowering diaspora youth across the UK, Europe, North America & Gulf to embrace their language and culture.
             </p>
             <div className="flex items-center gap-3 pt-2">
               <Badge variant="outline" className="text-slate-300 border-slate-700">
@@ -40,8 +40,7 @@ export function Footer({ onOpenBooking }) {
             <ul className="space-y-2 text-sm text-slate-400">
               <li><a href="#tracks" className="hover:text-indigo-400 transition-colors">Af-Somali Language</a></li>
               <li><a href="#tracks" className="hover:text-teal-400 transition-colors">Dhaqan Culture</a></li>
-              <li><a href="#tracks" className="hover:text-orange-400 transition-colors">Tarbiyah & Deen</a></li>
-              <li><a href="#tracks" className="hover:text-white transition-colors">Youth Literature</a></li>
+              <li><a href="#tracks" className="hover:text-amber-400 transition-colors">Youth Literature</a></li>
             </ul>
           </div>
 
@@ -70,7 +69,7 @@ export function Footer({ onOpenBooking }) {
               </div>
               <div className="flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-orange-400" />
-                <span>London, UK & Hargeysa, Somaliland</span>
+                <span>London, UK & Horn of Africa</span>
               </div>
             </div>
             <button
@@ -84,7 +83,7 @@ export function Footer({ onOpenBooking }) {
         </div>
 
         <div className="mt-12 pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
-          <p>© {new Date().getFullYear()} Garaad — Somaliland Diaspora Learning Centre. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Garaad — Somali Diaspora Learning Centre. All rights reserved.</p>
           <p className="flex items-center gap-1">
             Built with <Heart className="w-3.5 h-3.5 text-red-500 fill-red-500" /> for Somali youth worldwide.
           </p>

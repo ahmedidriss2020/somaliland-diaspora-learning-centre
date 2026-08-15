@@ -3,20 +3,20 @@ import { cva } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const badgeVariants = cva(
-  "inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2",
+  "inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-bold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 hover:scale-105 select-none shadow-xs",
   {
     variants: {
       variant: {
         default:
-          "border-transparent bg-indigo-100 text-indigo-700 hover:bg-indigo-200",
+          "border-indigo-200/80 bg-indigo-50 text-indigo-700 hover:bg-indigo-100 hover:border-indigo-300",
         secondary:
-          "border-transparent bg-teal-100 text-teal-800 hover:bg-teal-200",
+          "border-teal-200/80 bg-teal-50 text-teal-800 hover:bg-teal-100 hover:border-teal-300",
         accent:
-          "border-transparent bg-orange-100 text-orange-800 hover:bg-orange-200",
+          "border-orange-200/80 bg-orange-50 text-orange-800 hover:bg-orange-100 hover:border-orange-300",
         destructive:
-          "border-transparent bg-red-100 text-red-700 hover:bg-red-200",
-        outline: "text-slate-700 border-slate-300",
-        gold: "border-transparent bg-amber-100 text-amber-900 border border-amber-300/60 font-bold",
+          "border-red-200/80 bg-red-50 text-red-700 hover:bg-red-100 hover:border-red-300",
+        outline: "text-slate-700 border-slate-300/80 bg-white/90 backdrop-blur-xs hover:bg-slate-100 hover:border-slate-400",
+        gold: "bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 border border-amber-300 font-extrabold shadow-sm hover:from-amber-300 hover:to-amber-400",
       },
     },
     defaultVariants: {
@@ -32,3 +32,4 @@ function Badge({ className, variant, ...props }) {
 }
 
 export { Badge, badgeVariants }
+

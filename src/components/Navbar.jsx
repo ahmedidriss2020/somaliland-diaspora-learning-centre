@@ -22,7 +22,7 @@ export function Navbar({ onOpenBooking, currentLang, setLang }) {
               <span className="font-heading font-extrabold text-2xl text-slate-900 tracking-tight">Garaad</span>
               <Badge variant="gold" className="text-[10px] px-2 py-0">Diaspora Hub</Badge>
             </div>
-            <span className="text-xs text-slate-500 font-medium">Somaliland Diaspora Learning Centre</span>
+            <span className="text-xs text-slate-500 font-medium">Somali Diaspora Learning Centre</span>
           </div>
         </a>
 
